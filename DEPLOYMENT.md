@@ -27,7 +27,7 @@ Add these environment variables in the **Settings** tab:
 | Variable | Value |
 |----------|-------|
 | `HUGO_VERSION` | `0.142.0` |
-| `NODE_VERSION` | `20` (if needed) |
+| `HUGO_EXTENDED` | `true` |
 
 ### Step 4: Deploy
 
@@ -59,9 +59,15 @@ After deployment, verify:
 ## 🚨 Troubleshooting
 
 ### Build Failures
+- **Hugo Extended Error**: Ensure `HUGO_EXTENDED=true` environment variable is set
 - Check Hugo version matches local (`0.142.0`)
 - Verify submodules are properly initialized
 - Check build logs for specific errors
+
+**Common Fix for SCSS/Image Processing Errors:**
+1. Go to Pages project → Settings → Environment variables
+2. Add: `HUGO_EXTENDED` = `true`
+3. Redeploy the project
 
 ### DNS Issues
 - Ensure CNAME record is properly configured

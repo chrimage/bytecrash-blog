@@ -19,6 +19,7 @@
 | **Framework preset** | Hugo |
 | **Build command** | `hugo --minify` |
 | **Build output directory** | `public` |
+| **Deploy command** | *(leave empty - not needed for Pages)* |
 
 ### Step 3: Environment Variables
 

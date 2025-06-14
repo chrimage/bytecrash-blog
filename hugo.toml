@@ -9,7 +9,10 @@ defaultContentLanguage = "en-us"
 
 # Enable emojis globally
 enableEmoji = true
-ignoreErrors = ["additional-script-loading-error"] # ignore error of loading additional scripts.
+ignoreErrors = ["additional-script-loading-error", "error-missing-instagram-accesstoken"] # ignore error of loading additional scripts.
+
+# Ignore build errors for compatibility
+ignoreFiles = []
 
 # traditional way: theme component resides in directory 'themes'
 theme = "hugo-blog-awesome"

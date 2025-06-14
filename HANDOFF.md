@@ -32,6 +32,7 @@
 | **Production branch** | `main` |
 | **Build command** | `hugo --minify` |
 | **Output directory** | `public` |
+| **Deploy command** | *(not needed - automatic)* |
 | **Environment variable** | `HUGO_VERSION=0.142.0`, `HUGO_EXTENDED=true` |
 
 ### Custom Domain Setup

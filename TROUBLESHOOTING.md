@@ -57,6 +57,21 @@ This means the site **should build successfully** even without Hugo Extended, th
 3. **Verify environment variables** are saved correctly
 4. **Contact support** with build logs if issues persist
 
+## Issue: Wrangler Deploy Error
+
+If you see this error:
+```
+✘ [ERROR] Missing entry-point to Worker script or to assets directory
+```
+
+**Solution**: Remove the deploy command entirely. Cloudflare Pages automatically deploys static sites after the build completes.
+
+- **Build command**: `hugo --minify`
+- **Deploy command**: *(leave empty)*
+- **Output directory**: `public`
+
+`wrangler deploy` is for Cloudflare Workers, not Pages.
+
 ## 📞 Still Having Issues?
 
 Check the [Cloudflare Pages Hugo documentation](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/) for the latest requirements.

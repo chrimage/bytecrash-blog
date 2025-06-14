@@ -7,7 +7,7 @@ If you see this error in Cloudflare Pages build logs:
 ERROR TOCSS: failed to transform "style.scss" (text/x-scss). Check your Hugo installation; you need the extended version to build SCSS/SASS
 ```
 
-## ✅ Solution
+## ✅ Solution 1: Enable Hugo Extended (Recommended)
 
 1. **Go to Cloudflare Pages Dashboard**
 2. **Select your project** (`bytecrash-blog`)
@@ -23,9 +23,19 @@ ERROR TOCSS: failed to transform "style.scss" (text/x-scss). Check your Hugo ins
 6. **Go to Deployments tab**
 7. **Click "Retry deployment" on the latest build**
 
+## ✅ Solution 2: Automatic Fallback (Already Implemented)
+
+The repository now includes automatic fallbacks that work with standard Hugo:
+
+- **Custom CSS**: Fallback styling when SCSS isn't available
+- **Image Processing**: Simplified avatar handling without Hugo Extended features
+- **Conditional Logic**: Automatically detects Hugo version and adapts
+
+This means the site **should build successfully** even without Hugo Extended, though with slightly reduced styling.
+
 ## ✅ Verification
 
-After adding `HUGO_EXTENDED=true`, you should see in the build logs:
+### With Hugo Extended:
 ```
 ✅ Detected the following tools from environment: nodejs@20.19.2, hugo@0.142.0
 ✅ Start building sites …
@@ -33,12 +43,19 @@ After adding `HUGO_EXTENDED=true`, you should see in the build logs:
 ✅ Success: Finished building
 ```
 
-## 🔄 Alternative: Manual Redeploy
+### With Standard Hugo (Fallback):
+```
+✅ Start building sites …
+✅ Total in XXX ms (using fallback CSS)
+✅ Success: Finished building
+```
 
-If the environment variables don't take effect:
-1. Make a small commit (add a space to README)
-2. Push to trigger a new build
-3. The new build will use Hugo Extended
+## 🔄 If Still Failing
+
+1. **Check the latest build logs** for specific error messages
+2. **Try a manual redeploy**: Make a small commit and push
+3. **Verify environment variables** are saved correctly
+4. **Contact support** with build logs if issues persist
 
 ## 📞 Still Having Issues?
 

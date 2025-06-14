@@ -1,12 +1,12 @@
 # ByteCrash Blog
 
-A fast, minimal Hugo blog built with the [Hugo Blog Awesome](https://github.com/hugo-sid/hugo-blog-awesome) theme and deployed on Cloudflare Pages.
+A fast, minimal Hugo blog built with the [Hugo Terminal](https://github.com/panr/hugo-theme-terminal) theme and deployed on Cloudflare Pages.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- **Hugo Extended** ≥ 0.115 ([installation guide](https://gohugo.io/installation/))
+- **Hugo Extended** ≥ 0.90 ([installation guide](https://gohugo.io/installation/))
 - **Git** with submodule support
 - **Node.js** (optional, for additional tooling)
 
@@ -33,8 +33,8 @@ A fast, minimal Hugo blog built with the [Hugo Blog Awesome](https://github.com/
 
 ### Creating Content
 
-- **New post**: `hugo new content/en/posts/my-post/index.md`
-- **New page**: `hugo new content/en/pages/my-page.md`
+- **New post**: `hugo new posts/my-post.md`
+- **New page**: `hugo new about.md`
 
 Remember to set `draft: false` in the front matter when ready to publish.
 
@@ -44,16 +44,16 @@ The site configuration is in `hugo.toml`. Key settings include:
 
 - **baseURL**: Set to `https://blog.bytecrash.xyz/`
 - **title**: "ByteCrash Blog"
-- **theme**: "hugo-blog-awesome"
-- **defaultColor**: "auto" (respects user's system preference)
+- **theme**: "hugo-theme-terminal"
+- **Terminal theme**: Retro, minimal design with syntax highlighting
 
 ## 🎨 Theme Updates
 
-To update the Hugo Blog Awesome theme:
+To update the Hugo Terminal theme:
 
 ```bash
 git submodule update --remote --merge
-git commit -am "chore(theme): bump HBA to latest"
+git commit -am "chore(theme): bump Terminal theme to latest"
 git push
 ```
 
@@ -83,14 +83,14 @@ The generated site will be in the `public/` directory.
 
 ```
 bytecrash-blog/
-├── content/en/          # English content
-│   ├── pages/          # Static pages (About, etc.)
-│   └── posts/          # Blog posts
-├── themes/             # Theme submodule
-├── assets/             # Images, custom CSS/JS
-├── static/             # Static files (copied as-is)
-├── hugo.toml           # Site configuration
-└── README.md           # This file
+├── content/                # Content files
+│   ├── posts/             # Blog posts
+│   └── about.md           # About page
+├── themes/                # Theme submodule
+├── assets/                # Images, custom CSS/JS
+├── static/                # Static files (copied as-is)
+├── hugo.toml              # Site configuration
+└── README.md              # This file
 ```
 
 ## 🛠️ Development Commands
@@ -100,22 +100,23 @@ bytecrash-blog/
 | `hugo server` | Start development server |
 | `hugo server -D` | Include draft content |
 | `hugo --minify` | Build for production |
-| `hugo new content/en/posts/title/index.md` | Create new post |
+| `hugo new posts/title.md` | Create new post |
 
 ## 📝 Content Guidelines
 
 - Use `draft: false` for published content
 - Include `description` in front matter for SEO
 - Add relevant `tags` and `categories`
-- Use `index.md` for posts with images/resources
+- Posts go in `content/posts/`
+- Pages go in `content/`
 
 ## 🔗 Links
 
 - **Live Site**: [blog.bytecrash.xyz](https://blog.bytecrash.xyz)
-- **Theme Documentation**: [Hugo Blog Awesome](https://github.com/hugo-sid/hugo-blog-awesome)
+- **Theme Documentation**: [Hugo Terminal](https://github.com/panr/hugo-theme-terminal)
 - **Hugo Documentation**: [gohugo.io](https://gohugo.io/)
 
 ## 📄 License
 
 Content is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-Theme is licensed under [MIT License](https://github.com/hugo-sid/hugo-blog-awesome/blob/main/LICENSE).
+Theme is licensed under [MIT License](https://github.com/panr/hugo-theme-terminal/blob/master/LICENSE.md).

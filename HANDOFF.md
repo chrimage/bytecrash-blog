@@ -5,7 +5,7 @@
 ### 1. Git Repository ✅
 - **Repository**: [github.com/chrimage/bytecrash-blog](https://github.com/chrimage/bytecrash-blog)
 - **Status**: ✅ Builds locally with `hugo server`
-- **Theme**: ✅ Hugo Blog Awesome via Git submodule
+- **Theme**: ✅ Hugo Terminal theme via Git submodule
 - **Commit History**: ✅ Clean, semantic commits
 
 ### 2. Starter Content ✅
@@ -46,23 +46,35 @@
 ```toml
 title = "ByteCrash Blog"
 baseURL = 'https://blog.bytecrash.xyz/'
-defaultColor = "auto"  # Respects user system preference
+theme = "hugo-theme-terminal"
 
-[Languages.en-us.params]
-sitename = "ByteCrash Blog"
-description = "Technical insights, tutorials, and thoughts on software development"
+[params]
+contentTypeName = "posts"
+fullWidthTheme = false
+centerTheme = false
 
-[Languages.en-us.params.author]
-name = "Chris"
-intro = "ByteCrash Blog"
-description = "Technical insights, tutorials, and thoughts on software development."
+[languages.en.params]
+subtitle = "Technical insights, tutorials, and thoughts on software development"
+owner = "Chris"
+
+[languages.en.params.logo]
+logoText = "ByteCrash"
+logoHomeLink = "/"
 ```
+
+### Theme Features
+- **Retro terminal aesthetic** with monospace fonts
+- **Syntax highlighting** for code blocks
+- **Minimal, fast design** optimized for technical content
+- **Responsive layout** works on all devices
+- **Dark theme** by default with terminal-style colors
 
 ### Removed Features
 - Multilingual support (simplified to English only)
 - Sample posts (replaced with welcome post)
 - Google Analytics (can be added later)
-- Disqus comments (can be added later)
+- Complex author bio system
+- Image processing dependencies (Terminal theme is simpler)
 
 ## 📊 Validation Results
 
@@ -77,7 +89,7 @@ description = "Technical insights, tutorials, and thoughts on software developme
 ### Content Creation
 ```bash
 # New blog post
-hugo new content/en/posts/my-post/index.md
+hugo new posts/my-post.md
 
 # Edit and set draft: false when ready
 # Commit and push to trigger deployment
@@ -86,7 +98,7 @@ hugo new content/en/posts/my-post/index.md
 ### Theme Updates
 ```bash
 git submodule update --remote --merge
-git commit -am "chore(theme): bump HBA to latest"
+git commit -am "chore(theme): bump Terminal theme to latest"
 git push
 ```
 
@@ -114,7 +126,7 @@ hugo server --minify --gc --disableFastRender
 ## 📞 Support
 
 - **Repository**: https://github.com/chrimage/bytecrash-blog
-- **Theme Docs**: https://github.com/hugo-sid/hugo-blog-awesome
+- **Theme Docs**: https://github.com/panr/hugo-theme-terminal
 - **Hugo Docs**: https://gohugo.io/
 
 ## 🎯 Success Metrics

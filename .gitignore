@@ -27,3 +27,6 @@ node_modules/
 
 # OpenCode
 .opencode/
+
+# Internal documentation
+STYLE_GUIDE.md

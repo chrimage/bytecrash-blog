@@ -25,7 +25,7 @@ This blog will cover a wide range of topics including:
 
 This blog is built with [Hugo](https://gohugo.io/), the world's fastest framework for building websites. It's deployed on Cloudflare Pages for lightning-fast performance and global availability.
 
-The theme is based on [Hugo Blog Awesome](https://github.com/hugo-sid/hugo-blog-awesome), which provides a clean, minimal design with excellent performance and accessibility.
+The theme is [Hugo Terminal](https://github.com/panr/hugo-theme-terminal), which provides a retro terminal aesthetic perfect for technical content, with excellent syntax highlighting and a minimal, fast design.
 
 ## Stay Connected
 

@@ -1,0 +1,43 @@
+/* Green Terminal Theme Override */
+:root {
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --accent: #39d353;
+  --font-size: 1rem;
+  --line-height: 1.54em;
+  --radius: 0;
+}
+
+/* Link colors */
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: #2ea043;
+}
+
+/* Code highlighting adjustments for green theme */
+.chroma .k { color: #39d353; } /* keywords */
+.chroma .kc { color: #39d353; } /* keyword constant */
+.chroma .kd { color: #39d353; } /* keyword declaration */
+.chroma .kn { color: #39d353; } /* keyword namespace */
+.chroma .kp { color: #39d353; } /* keyword pseudo */
+.chroma .kr { color: #39d353; } /* keyword reserved */
+.chroma .kt { color: #39d353; } /* keyword type */
+
+/* Menu active state */
+.menu__trigger:hover {
+  color: var(--accent);
+}
+
+/* Button styles */
+.button {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.button:hover {
+  background-color: var(--accent);
+  color: var(--background);
+}

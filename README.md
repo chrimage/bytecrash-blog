@@ -66,7 +66,7 @@ This site is automatically deployed to Cloudflare Pages with the following setti
 | **Production branch** | `main` |
 | **Build command** | `hugo --minify` |
 | **Output directory** | `public` |
-| **Deploy command** | *(not needed - automatic)* |
+| **Deploy command** | `echo "Deployment complete"` | *(if required)* |
 | **Environment variables** | `HUGO_VERSION=0.142.0`, `HUGO_EXTENDED=true` |
 
 ### Manual Build

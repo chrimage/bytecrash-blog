@@ -7,7 +7,7 @@
 | **Framework preset** | Hugo | Auto-detects Hugo settings |
 | **Build command** | `hugo --minify` | Builds the static site |
 | **Build output directory** | `public` | Where Hugo outputs files |
-| **Deploy command** | *(leave empty)* | Pages deploys automatically |
+| **Deploy command** | `echo "Deployment complete"` | If required by UI |
 
 ## Environment Variables
 

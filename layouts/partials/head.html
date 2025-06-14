@@ -1,0 +1,125 @@
+<head>
+    {{- partial "meta/main.html" . }}
+    {{- hugo.Generator }}
+
+    {{/* Open Graph tags */}}
+    {{ template "_internal/opengraph.html" . }}
+
+    {{/* Twitter Card tags */}}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    {{/* Canonical link, RSS */}}
+
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{- with .OutputFormats.Get "RSS" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+    <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}">
+    {{- end }}
+
+    {{- /* Styles - Fallback for non-extended Hugo */ -}}
+    
+    {{- if hugo.IsExtended }}
+        {{- $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "style.css") | minify | fingerprint }}
+        <link href="{{ $style.RelPermalink }}" rel="stylesheet">
+    {{- else }}
+        <!-- Fallback CSS for standard Hugo -->
+        <style>
+        /* Basic styling for Hugo Blog Awesome theme - fallback for non-extended Hugo */
+        :root {
+            --text-color: #434648;
+            --bg-color: #fff;
+            --link-color: #003fff;
+            --border-color: #c4c8cc;
+        }
+        
+        [data-theme="dark"] {
+            --text-color: #babdc4;
+            --bg-color: #131418;
+            --link-color: #77a8fd;
+            --border-color: #4a4d56;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.85;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container { max-width: 890px; margin: 0 auto; padding: 0 15px; }
+        
+        header { padding: 20px 0; border-bottom: 1px solid var(--border-color); }
+        
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--link-color); }
+        nav a:hover { text-decoration: underline; }
+        
+        main { padding: 40px 0; }
+        
+        h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 20px; }
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; }
+        
+        p { margin-bottom: 20px; }
+        
+        a { color: var(--link-color); }
+        a:hover { color: var(--link-color); opacity: 0.8; }
+        
+        .post-meta { color: var(--text-color); opacity: 0.7; margin-bottom: 20px; }
+        
+        .post-list { list-style: none; padding: 0; }
+        .post-list li { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); }
+        .post-list h2 { margin-bottom: 10px; }
+        
+        footer { padding: 20px 0; border-top: 1px solid var(--border-color); text-align: center; }
+        
+        /* Dark mode toggle */
+        .theme-toggle { background: none; border: 1px solid var(--border-color); color: var(--text-color); padding: 8px 12px; cursor: pointer; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 0 10px; }
+            nav ul { flex-direction: column; gap: 10px; }
+            h1 { font-size: 2em; }
+        }
+        </style>
+    {{- end }}
+    
+    {{- $code_syntax_highlight_css := resources.Get "code-highlight.css" | minify | fingerprint }}
+    <link href="{{ $code_syntax_highlight_css.RelPermalink }}" rel="stylesheet">
+
+    {{/* Favicons */}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ (resources.Get "icons/apple-touch-icon.png").RelPermalink }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ (resources.Get "icons/favicon-32x32.png").RelPermalink }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "icons/favicon-16x16.png").RelPermalink }}">
+    <link rel="mask-icon" href="{{ (resources.Get "icons/safari-pinned-tab.svg").RelPermalink }}">
+    <link rel="shortcut icon" href="{{ (resources.Get "icons/favicon.ico" | resources.Copy "favicon.ico").RelPermalink }}">
+
+    {{- partial "webmanifest.html" . -}}
+    {{- partial "browserconfig.html" . -}}
+
+    <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
+
+    {{/* SVG favicon for the modern web */}}
+    <link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/favicon.svg").RelPermalink }}">
+
+    {{/* Katex support (enabled on specific pages). See 'helpers/katex.html' for more info. */}}
+
+    {{- if or .Params.math .Site.Params.math }}{{ partial "helpers/katex.html" . -}}{{- end -}}
+
+    {{/* Google analytics script. See hugo.toml to enable/disable this. */}}
+    {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+    {{ template "_internal/google_analytics.html" . }}
+    {{- end -}}
+
+    {{/* Extend head with user supplied partial */}}
+    {{ if templates.Exists "partials/custom-head.html" }}
+      {{ partial "custom-head.html" . }}
+    {{ end }}
+</head>

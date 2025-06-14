@@ -24,7 +24,7 @@ fi
 
 # Check theme submodule
 echo "📋 Checking theme submodule..."
-if [ -d "themes/hugo-blog-awesome" ] && [ -f "themes/hugo-blog-awesome/theme.toml" ]; then
+if [ -d "themes/hugo-theme-terminal" ] && [ -f "themes/hugo-theme-terminal/theme.toml" ]; then
     echo "✅ Theme submodule found"
 else
     echo "❌ Theme submodule missing. Run: git submodule update --init --recursive"
@@ -74,10 +74,10 @@ fi
 
 # Check content
 echo "📋 Checking content..."
-POSTS_COUNT=$(find content/en/posts -name "*.md" -not -name "_index.md" | wc -l)
+POSTS_COUNT=$(find content/posts -name "*.md" -not -name "_index.md" 2>/dev/null | wc -l)
 echo "✅ Found $POSTS_COUNT blog post(s)"
 
-PAGES_COUNT=$(find content/en/pages -name "*.md" | wc -l)
+PAGES_COUNT=$(find content -maxdepth 1 -name "*.md" -not -name "_index.md" 2>/dev/null | wc -l)
 echo "✅ Found $PAGES_COUNT page(s)"
 
 # Git status
